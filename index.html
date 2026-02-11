@@ -3,87 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVEINFO</title>
-
+<title>Digital Portal</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <!-- HEADER -->
-<header>
+<header class="glass">
     <div class="logo-area">
         <div class="logo"></div>
         <div class="site-name">Digital Portal</div>
     </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="header-right">
+        <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
 
     <nav id="navMenu">
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#">Updates</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 </header>
 
-<!-- 3 COLUMN SECTION -->
+<!-- NEWS TICKER -->
+<div class="news-ticker">
+    <div class="ticker-content">
+        🔔 New Vacancy Notification Released | 📢 Digital Services Updated | 🎓 Scholarship Portal Open | 🏢 Recruitment 2026 Applications Started
+    </div>
+</div>
+
+<!-- 3 CARDS -->
 <section class="section">
-    <div class="card">
+    <div class="card glass animate">
         <h3>Digital Hub</h3>
         <p>Access digital services and online applications easily.</p>
     </div>
 
-    <div class="card">
+    <div class="card glass animate">
         <h3>Current Updates</h3>
         <p>Latest news and circulars updated regularly.</p>
     </div>
 
-    <div class="card">
+    <div class="card glass animate">
         <h3>Vacancy</h3>
         <p>Check new job notifications and recruitment details.</p>
     </div>
 </section>
 
 <!-- CAROUSEL -->
-<section class="carousel">
+<section class="carousel glass">
     <div class="slides" id="slideContainer">
         <img src="https://picsum.photos/1200/400?1">
         <img src="https://picsum.photos/1200/400?2">
         <img src="https://picsum.photos/1200/400?3">
     </div>
-
     <button class="prev" onclick="moveSlide(-1)">❮</button>
     <button class="next" onclick="moveSlide(1)">❯</button>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-column">
-            <h4>About</h4>
-            <a href="#">Company Info</a>
-            <a href="#">Leadership</a>
-        </div>
-
-        <div class="footer-column">
-            <h4>Policies</h4>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-        </div>
-
-        <div class="footer-column">
-            <h4>Support</h4>
-            <a href="#">Help Center</a>
-            <a href="#">Contact</a>
-        </div>
-    </div>
-
-    <div class="copyright">
-        © 2026 Digital Portal | All Rights Reserved
-    </div>
+<footer class="glass">
+    <p>© 2026 Digital Portal | Privacy Policy | Terms | Disclaimer</p>
 </footer>
 
 <script src="js/main.js"></script>
