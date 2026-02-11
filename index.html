@@ -3,23 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DiveInfo</title>
+<title>Digital Portal</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <!-- HEADER -->
 <header class="glass">
     <div class="logo-area">
-        <div class="logo"><img src="IMAGES/LOGO.jpg" alt="Logo">
-        </div>
-    </div>
-        <div class="site-name">DIVEINFO</div>
+        <img src="images/logo.jpg" alt="Logo" class="logo">
+        <h2>Digital Portal</h2>
     </div>
 
     <div class="header-right">
-        <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+        <button onclick="toggleMode()" class="mode-btn">🌙</button>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
 
@@ -27,7 +24,6 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Updates</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
@@ -36,47 +32,59 @@
 <!-- NEWS TICKER -->
 <div class="news-ticker">
     <div class="ticker-content">
-        🔔 New Vacancy Notification Released | 📢 Digital Services Updated | 🎓 Scholarship Portal Open | 🏢 Recruitment 2026 Applications Started
+        🔔 Recruitment 2026 Open | 📢 New Circular Released | 🎓 Scholarship Portal Active | 🏢 Govt Vacancy Updates
     </div>
 </div>
 
-<!-- 3 CARDS -->
+<!-- MAIN SECTION -->
 <section class="section">
-   <div class="card glass animate">
-    <h3>Digital Hub</h3>
-    <ul class="hub-links">
-        <!-- INTERNAL LINKS -->
-        <li><a href="bus-tickets.html">🚌 Bus Tickets</a></li>
-        <li><a href="ferry-tickets.html">⛴ Ferry Tickets</a></li>
 
-        <!-- EXTERNAL LINKS -->
-        <li><a href="https://edistrict.example.com" target="_blank">e-District Services</a></li>
-        <li><a href="https://waterbill.example.com" target="_blank">Water Bill Pay</a></li>
-        <li><a href="https://electricitybill.example.com" target="_blank">Electricity Bill Pay</a></li>
-        <li><a href="https://dcsac.example.com" target="_blank">DCSAC</a></li>
-        <li><a href="https://alhw.example.com" target="_blank">ALHW</a></li>
-        <li><a href="https://apwd.example.com" target="_blank">APWD</a></li>
-    </ul>
-</div>
+    <!-- DIGITAL HUB -->
+    <div class="card glass">
+        <h3>Digital Hub</h3>
+        <ul class="link-list">
+            <li><a href="bus-tickets.html">🚌 Bus Tickets</a></li>
+            <li><a href="ferry-tickets.html">⛴ Ferry Tickets</a></li>
+            <li><a href="https://edistrict.gov.in" target="_blank">e-District Services</a></li>
+            <li><a href="https://waterbill.gov.in" target="_blank">Water Bill Pay</a></li>
+            <li><a href="https://electricitybill.gov.in" target="_blank">Electricity Bill Pay</a></li>
+            <li><a href="https://apwd.gov.in" target="_blank">APWD</a></li>
+        </ul>
+    </div>
 
-
-    <div class="card glass animate">
+    <!-- CURRENT UPDATES -->
+    <div class="card glass">
         <h3>Current Updates</h3>
-        <p>Latest news and circulars updated regularly.</p>
+        <div class="updates-container">
+            <ul class="updates-list">
+                <li>New Recruitment Notification Released</li>
+                <li><a href="#">Scholarship Portal Open</a></li>
+                <li>Website Maintenance on Sunday</li>
+                <li><a href="https://example.com" target="_blank">Govt Circular PDF</a></li>
+                <li>Exam Results Published</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="card glass animate">
+    <!-- VACANCY -->
+    <div class="card glass">
         <h3>Vacancy</h3>
-        <p>Check new job notifications and recruitment details.</p>
+        <ul class="link-list">
+            <li><a href="vacancy/xyz-region.html">XYZ Region</a></li>
+            <li><a href="vacancy/all-india.html">All India</a></li>
+            <li><a href="https://employment.gov.in" target="_blank">National Employment Portal</a></li>
+            <li><a href="vacancy/more.html">More...</a></li>
+        </ul>
     </div>
+
 </section>
 
 <!-- CAROUSEL -->
 <section class="carousel glass">
     <div class="slides" id="slideContainer">
-        <img src="https://picsum.photos/1200/400?1">
-        <img src="https://picsum.photos/1200/400?2">
-        <img src="https://picsum.photos/1200/400?3">
+        <img src="images/slide1.jpg">
+        <img src="images/slide2.jpg">
+        <img src="images/slide3.jpg">
     </div>
     <button class="prev" onclick="moveSlide(-1)">❮</button>
     <button class="next" onclick="moveSlide(1)">❯</button>
@@ -84,7 +92,7 @@
 
 <!-- FOOTER -->
 <footer class="glass">
-    <p>© 2026 Digital Portal | Privacy Policy | Terms | Disclaimer</p>
+    © 2026 Digital Portal | Privacy Policy | Terms | Disclaimer
 </footer>
 
 <script src="js/main.js"></script>
