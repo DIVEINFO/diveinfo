@@ -121,6 +121,29 @@ nav ul li a{
 }
 
 /* SECTION */
+.hub-links{
+    list-style:none;
+    padding:0;
+}
+
+.hub-links li{
+    margin:8px 0;
+}
+
+.hub-links a{
+    text-decoration:none;
+    color:inherit;
+    padding:6px 10px;
+    display:block;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.hub-links a:hover{
+    background:rgba(255,255,255,0.2);
+    transform:translateX(5px);
+}
+
 .section{
     display:grid;
     grid-template-columns:repeat(3,1fr);
