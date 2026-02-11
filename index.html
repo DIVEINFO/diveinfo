@@ -1,105 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DiveInfoZone</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="All important information in one place. Easy access to documents, guides and useful resources.">
-  
-  <!-- AdSense script goes here later -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIVEINFO</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f4f8;
-      color: #333;
-    }
-    header {
-      background: #0d6efd;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    section {
-      padding: 20px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #0d6efd;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    footer {
-      background: #fff;
-      padding: 15px;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer a {
-      margin: 0 10px;
-      color: #555;
-      text-decoration: none;
-    }
-  </style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>📌 One Roof Information Hub</h1>
-  <p>Easy access to useful information – all in one place</p>
+    <div class="logo-area">
+        <div class="logo"></div>
+        <div class="site-name">Digital Portal</div>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
-<section>
-  <h2>Popular Resources</h2>
-  <div class="grid">
+<!-- 3 COLUMN SECTION -->
+<section class="section">
     <div class="card">
-      <h3>📄 Important Documents</h3>
-      <p>Frequently used PDFs and reference files.</p>
-      <a href="database.pdf">Open</a>
+        <h3>Digital Hub</h3>
+        <p>Access digital services and online applications easily.</p>
     </div>
 
     <div class="card">
-      <h3>📘 Guides & How-Tos</h3>
-      <p>Simple explanations and step-by-step guides.</p>
-      <a href="#">View</a>
+        <h3>Current Updates</h3>
+        <p>Latest news and circulars updated regularly.</p>
     </div>
 
     <div class="card">
-      <h3>🔗 Useful Links</h3>
-      <p>Trusted websites and official resources.</p>
-      <a href="#">Explore</a>
+        <h3>Vacancy</h3>
+        <p>Check new job notifications and recruitment details.</p>
     </div>
-  </div>
 </section>
 
-<section>
-  <h2>Why This Site?</h2>
-  <p>
-    This platform is created to help people find important information quickly,
-    without confusion or unnecessary searching.
-  </p>
+<!-- CAROUSEL -->
+<section class="carousel">
+    <div class="slides" id="slideContainer">
+        <img src="https://picsum.photos/1200/400?1">
+        <img src="https://picsum.photos/1200/400?2">
+        <img src="https://picsum.photos/1200/400?3">
+    </div>
+
+    <button class="prev" onclick="moveSlide(-1)">❮</button>
+    <button class="next" onclick="moveSlide(1)">❯</button>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <a href="about.html">About</a>
-  |
-  <a href="privacy.html">Privacy Policy</a>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>About</h4>
+            <a href="#">Company Info</a>
+            <a href="#">Leadership</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Policies</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 Digital Portal | All Rights Reserved
+    </div>
 </footer>
 
+<script src="js/main.js"></script>
 </body>
 </html>
