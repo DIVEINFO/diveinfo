@@ -1,12 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Bus Tickets</title>
-</head>
-<body>
-    <h2>Bus Ticket Booking</h2>
-    <p>Online Bus Booking Portal</p>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bus Ticket Booking</title>
 
-    <a href="index.html">⬅ Back to Home</a>
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+/* HEADER */
+header{
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    backdrop-filter:blur(10px);
+}
+
+/* SEARCH */
+.search-box{
+    text-align:center;
+    margin:20px;
+}
+
+.search-box input{
+    padding:12px;
+    width:60%;
+    border-radius:30px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:20px;
+    transition:0.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+}
+
+.card h3{
+    margin-top:0;
+}
+
+.card a{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#ff9800;
+    border-radius:20px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.card a:hover{
+    background:#ff5722;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<header>🚌 Bus Ticket Booking Portal</header>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Bus Service...">
+</div>
+
+<div class="container" id="busContainer">
+
+<div class="card">
+    <h3>RedBus</h3>
+    <p>India's largest bus booking platform.</p>
+    <a href="https://www.redbus.in" target="_blank">Book Now</a>
+</div>
+
+<div class="card">
+    <h3>AbhiBus</h3>
+    <p>Online bus ticket reservation.</p>
+    <a href="https://www.abhibus.com" target="_blank">Book Now</a>
+</div>
+
+<div class="card">
+    <h3>Paytm Bus</h3>
+    <p>Secure online ticket booking.</p>
+    <a href="https://tickets.paytm.com/bus-tickets" target="_blank">Book Now</a>
+</div>
+
+<div class="card">
+    <h3>MakeMyTrip Bus</h3>
+    <p>Affordable travel tickets.</p>
+    <a href="https://www.makemytrip.com/bus-tickets" target="_blank">Book Now</a>
+</div>
+
+<div class="card">
+    <h3>State Transport Portal</h3>
+    <p>Official Government Bus Booking.</p>
+    <a href="https://www.ksrtc.in" target="_blank">Visit Website</a>
+</div>
+
+</div>
+
+<footer>© 2026 Digital Portal | Bus Booking Services</footer>
+
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function(){
+    let filter = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+    });
+});
+</script>
+
 </body>
 </html>
