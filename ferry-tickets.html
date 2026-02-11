@@ -1,12 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>FERRY TICKETS BOOKING</title>
-</head>
-<body>
-    <h2>FERRY TICKETS BOOKING</h2>
-    <p>Online FERRY Booking PortalS lINKS</p>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferry Ticket Booking</title>
 
-    <a href="index.html">⬅ Back to Home</a>
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+}
+
+/* HEADER */
+header{
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* SEARCH */
+.search-box{
+    text-align:center;
+    margin:20px;
+}
+
+.search-box input{
+    padding:12px;
+    width:60%;
+    border-radius:30px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:20px;
+    transition:0.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform:scale(1.08);
+}
+
+.card a{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#00c6ff;
+    border-radius:20px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.card a:hover{
+    background:#0072ff;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<header>⛴ Ferry Ticket Booking Portal</header>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Ferry Service...">
+</div>
+
+<div class="container">
+
+<div class="card">
+    <h3>Andaman Ferry</h3>
+    <p>Book ferry between islands.</p>
+    <a href="https://andamanferrybooking.com" target="_blank">Book Now</a>
+</div>
+
+<div class="card">
+    <h3>Makruzz Ferry</h3>
+    <p>Premium island ferry service.</p>
+    <a href="https://www.makruzz.com" target="_blank">Visit Website</a>
+</div>
+
+<div class="card">
+    <h3>Government Shipping Service</h3>
+    <p>Official passenger ferry booking.</p>
+    <a href="https://dss.andaman.gov.in" target="_blank">Visit Website</a>
+</div>
+
+<div class="card">
+    <h3>Private Ferry</h3>
+    <p>Luxury sea travel booking.</p>
+    <a href="https://example.com" target="_blank">Explore</a>
+</div>
+
+</div>
+
+<footer>© 2026 Digital Portal | Ferry Booking Services</footer>
+
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function(){
+    let filter = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+    });
+});
+</script>
+
 </body>
 </html>
