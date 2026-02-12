@@ -2,134 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ferry Ticket Booking</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ferry Booking Portals</title>
+
+<!-- Bootstrap CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 <style>
 body{
-    margin:0;
-    font-family:Segoe UI;
-    background:linear-gradient(135deg,#1e3c72,#2a5298);
-    color:white;
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
 }
 
-/* HEADER */
-header{
-    padding:20px;
-    text-align:center;
-    font-size:28px;
-    font-weight:bold;
+.glass-card{
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
-/* SEARCH */
-.search-box{
-    text-align:center;
-    margin:20px;
+.glass-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.search-box input{
-    padding:12px;
-    width:60%;
-    border-radius:30px;
-    border:none;
-    outline:none;
-    font-size:16px;
+.section-title{
+    border-left: 5px solid #ffc107;
+    padding-left: 10px;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
-/* GRID */
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    padding:30px;
-}
-
-.card{
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(15px);
-    border-radius:20px;
-    padding:20px;
-    transition:0.4s;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
-
-.card:hover{
-    transform:scale(1.08);
-}
-
-.card a{
-    display:inline-block;
-    margin-top:10px;
-    padding:8px 15px;
-    background:#00c6ff;
-    border-radius:20px;
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
-}
-
-.card a:hover{
-    background:#0072ff;
-}
-
-footer{
-    text-align:center;
-    padding:20px;
-    font-size:14px;
-    opacity:0.8;
+.navbar{
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.4) !important;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<header>⛴ Ferry Ticket Booking Portal</header>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="bi bi-ship"></i> Ferry Booking Portals
+    </a>
 
-<div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search Ferry Service...">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="bus-booking.html">
+            <i class="bi bi-bus-front"></i> Bus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="air-tickets.html">
+            <i class="bi bi-airplane"></i> Air
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+
+    <!-- GOVERNMENT SECTION -->
+    <h3 class="section-title">🏛 Government Ferry Services</h3>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="card glass-card p-4 text-dark">
+                <h5><i class="bi bi-building"></i> Directorate of Shipping Services</h5>
+                <p>Official government ferry booking portal.</p>
+                <a href="https://dss.andamannicobar.gov.in" 
+                   target="_blank" 
+                   class="btn btn-primary w-100">
+                   Visit Official Website
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVATE SECTION -->
+    <h3 class="section-title mt-5">🚢 Private Ferry Services</h3>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card glass-card p-4 text-dark">
+                <h5>Andaman Ferry</h5>                
+                <a href="https://andamanferryticket.com" target="_blank"
+                   class="btn btn-warning w-100">
+                   Visit
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card glass-card p-4 text-dark">
+                <h5>Book My Boat</h5>                
+                <a href="https://bookmyboat.com" target="_blank"
+                   class="btn btn-warning w-100">
+                   Visit
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card glass-card p-4 text-dark">
+                <h5>Book Your Ferry</h5>                
+                <a href="https://bookyourferry.com/?gad_source=1" target="_blank"
+                   class="btn btn-warning w-100">
+                   Visit
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card glass-card p-4 text-dark">
+                <h5>Go2Andaman</h5>                
+                <a href="https://www.go2andaman.com/online-ferry-booking" target="_blank"
+                   class="btn btn-warning w-100">
+                   Visit
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card glass-card p-4 text-dark">
+                <h5>Go Nautika</h5>
+                <a href="https://gonautika.com" target="_blank"
+                   class="btn btn-warning w-100">
+                   Visit
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card glass-card p-4 text-dark">
+                <h5>Makruzz</h5>                
+                <a href="https://makruzz.com" target="_blank"
+                   class="btn btn-warning w-100">
+                   Visit
+                </a>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
-<div class="container">
+<!-- FOOTER -->
+<footer class="text-center py-4 mt-5 bg-dark text-white">
+    © 2026 Digital Portal | Ferry Booking Gateway
+</footer>
 
-<div class="card">
-    <h3>Andaman Ferry</h3>
-    <p>Book ferry between islands.</p>
-    <a href="https://andamanferrybooking.com" target="_blank">Book Now</a>
-</div>
-
-<div class="card">
-    <h3>Makruzz Ferry</h3>
-    <p>Premium island ferry service.</p>
-    <a href="https://www.makruzz.com" target="_blank">Visit Website</a>
-</div>
-
-<div class="card">
-    <h3>Government Shipping Service</h3>
-    <p>Official passenger ferry booking.</p>
-    <a href="https://dss.andaman.gov.in" target="_blank">Visit Website</a>
-</div>
-
-<div class="card">
-    <h3>Private Ferry</h3>
-    <p>Luxury sea travel booking.</p>
-    <a href="https://example.com" target="_blank">Explore</a>
-</div>
-
-</div>
-
-<footer>© 2026 Digital Portal | Ferry Booking Services</footer>
-
-<script>
-document.getElementById("searchInput").addEventListener("keyup", function(){
-    let filter = this.value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
-
-    cards.forEach(card=>{
-        let text = card.innerText.toLowerCase();
-        card.style.display = text.includes(filter) ? "block" : "none";
-    });
-});
-</script>
+<!-- Bootstrap JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
