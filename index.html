@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,53 +13,45 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-navy fixed-top sleek-shadow">
-        <div class="container-fluid px-4 py-1">
-            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
-                <img src="images/logo.jpg" alt="Logo" width="45" height="45" class="rounded-circle shadow-sm" onerror="this.src='https://via.placeholder.com/45'">
-                <span class="fw-bold mb-0 h4 tracking-wide">DIVEINFO</span>
+    <header class="header-bg fixed-top border-bottom border-secondary d-flex align-items-center">
+        <div class="container-fluid px-4">
+            <a class="text-decoration-none d-flex align-items-center gap-3" href="#">
+                <img src="images/logo.jpg" alt="Logo" width="60" height="60" class="rounded-circle border border-2 border-light shadow" onerror="this.src='https://via.placeholder.com/60'">
+                <span class="fw-bold mb-0 h2 text-white tracking-wide text-shadow">DIVEINFO</span>
             </a>
-            
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3 ms-4">
-                    <li class="nav-item"><a class="nav-link nav-hover" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link nav-hover" href="#">Services</a></li>
-                    <li class="nav-item"><a class="nav-link nav-hover" href="#">Contact</a></li>
-                </ul>
-                <button onclick="toggleMode()" class="btn btn-mode rounded-circle d-flex align-items-center justify-content-center" id="theme-icon">🌙</button>
-            </div>
         </div>
-    </nav>
+    </header>
 
-    <div style="height: 100px;"></div>
+    <div style="height: 160px;"></div>
 
-    <div class="container mb-5">
-        <div class="news-ticker sleek-card">
+    <div class="container mb-4">
+        <div class="news-ticker structured-card px-3">
             <div class="ticker-content py-2">
-                <span class="badge bg-danger rounded-pill me-2">NEW</span> Recruitment 2026 Open &nbsp;|&nbsp; 
-                <span class="badge bg-primary rounded-pill me-2">INFO</span> New Circular Released &nbsp;|&nbsp; 
-                🎓 Scholarship Portal Active &nbsp;|&nbsp; 🏢 Govt Vacancy Updates
+                <span class="badge bg-danger me-2 border border-dark">NEW</span> Recruitment 2026 Open <span class="text-muted mx-2">|</span> 
+                <span class="badge bg-primary me-2 border border-dark">INFO</span> New Circular Released <span class="text-muted mx-2">|</span> 
+                🎓 Scholarship Portal Active <span class="text-muted mx-2">|</span> 🏢 Govt Vacancy Updates
             </div>
         </div>
     </div>
 
     <div class="container">
         
+        <div class="section-title mb-3">
+            <h5 class="fw-bold text-uppercase text-muted tracking-wide mb-0">Quick Access Hub</h5>
+            <hr class="mt-1 mb-3">
+        </div>
+
         <div class="row g-4 mb-5">
             <div class="col-lg-4 col-md-6">
-                <div class="card sleek-card h-100 border-0">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
-                            <h4 class="card-title fw-bold mb-0 text-navy">Digital Hub</h4>
-                        </div>
-                        <ul class="list-unstyled custom-list">
+                <div class="card structured-card h-100 border-ocean">
+                    <div class="card-header bg-ocean-blue border-bottom py-3">
+                        <h5 class="card-title fw-bold mb-0 text-white">🖥️ Digital Hub</h5>
+                    </div>
+                    <div class="card-body p-3">
+                        <ul class="list-unstyled custom-list mb-0">
+                            <li><a href="flight-tickets.html">✈️ Flight Tickets</a></li>
                             <li><a href="bus-tickets.html">🚌 Bus Tickets</a></li>
                             <li><a href="ferry-tickets.html">⛴ Ferry Tickets</a></li>
-                            <li><a href="air-tickets.html">✈️ Air Tickets</a></li>
                             <li><a href="https://edistrict.andamannicobar.gov.in" target="_blank">e-District Services</a></li>
                             <li><a href="https://waterbill.gov.in" target="_blank">Water Bill Pay</a></li>
                             <li><a href="https://urjapay.andamannicobar.gov.in" target="_blank">Electricity Bill Pay</a></li>
@@ -71,29 +63,38 @@
             </div>
 
             <div class="col-lg-4 col-md-6">
-                <div class="card sleek-card h-100 border-0">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
-                            <h4 class="card-title fw-bold mb-0 text-navy">Vacancy</h4>
-                        </div>
-                        <ul class="list-unstyled custom-list">
+                <div class="card structured-card h-100 border-ocean">
+                    <div class="card-header bg-ocean-blue border-bottom py-3">
+                        <h5 class="card-title fw-bold mb-0 text-white">🏢 Vacancy</h5>
+                    </div>
+                    <div class="card-body p-3">
+                        <ul class="list-unstyled custom-list mb-0">
                             <li><a href="vacancy/xyz-region.html">A&N Island Region</a></li>
                             <li><a href="vacancy/all-india.html">All India</a></li>
                             <li><a href="https://employment.gov.in" target="_blank">National Employment Portal</a></li>
-                            <li><a href="vacancy/more.html" class="fw-bold text-primary">View More Outputs ➔</a></li>
                         </ul>
                     </div>
+                    <!--<div class="card-footer bg-light border-top text-center py-2">
+                        <a href="vacancy/more.html" class="fw-bold text-ocean text-decoration-none">View All Vacancies ➔</a>
+                    </div>-->
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-12">
-                <div class="card sleek-card h-100 border-0">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
-                            <h4 class="card-title fw-bold mb-0 text-navy">Latest Updates</h4>
-                        </div>
-                        <div class="scroll-container mask-vertical">
-                            <ul class="list-unstyled custom-list scroll-up-list">
+                <div class="card structured-card h-100 border-ocean">
+                    <div class="card-header bg-ocean-blue border-bottom py-8">
+                        <h5 class="card-title fw-bold mb-0 text-white">📢 Latest Updates</h5>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="scroll-container mask-vertical" id="update-scroll-container">
+                            <ul class="list-unstyled custom-list mb-0" id="update-scroll-list">
+                                <li>New Recruitment Notification Released</li>
+                                <li><a href="#">Scholarship Portal Open</a></li>
+                                <li>Website Maintenance on Sunday</li>
+                                <li><a href="https://example.com" target="_blank">Govt Circular PDF</a></li>
+                                <li>Exam Results Published</li>
+                                <li>Upcoming Public Holiday Info</li>
+                                <li>Port Management Guidelines 2026</li>
                                 <li>New Recruitment Notification Released</li>
                                 <li><a href="#">Scholarship Portal Open</a></li>
                                 <li>Website Maintenance on Sunday</li>
@@ -108,67 +109,83 @@
             </div>
         </div>
 
+        <div class="section-title mb-3">
+            <h5 class="fw-bold text-uppercase text-muted tracking-wide mb-0">IMPORTANT CONTACTS INFO OF ANDAMAN & NICOBAR ISLANDS🏝️</h5>
+            <hr class="mt-1 mb-3">
+        </div>
+
         <div class="row g-4 mb-5">
             <div class="col-md-6">
-                <div class="card sleek-card h-100 border-0">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
-                            <span class="fs-4 me-2">🚨</span>
-                            <h4 class="card-title fw-bold mb-0 text-danger">INP Contacts XYZ Area</h4>
-                        </div>
-                        <ul class="list-unstyled custom-list">
-                            <li><strong>Police Control Room:</strong> <a href="tel:100" class="tel-link">100</a></li>
-                            <li><strong>Fire Service:</strong> <a href="tel:101" class="tel-link">101</a></li>
-                            <li><strong>Disaster Management:</strong> <a href="tel:1070" class="tel-link">1070</a></li>
-                            <li><strong>XYZ Area Station:</strong> <a href="tel:03192XXXXXX" class="tel-link">03192-XXXXXX</a></li>
+                <div class="card structured-card h-100 border-red">
+                    <div class="card-header bg-deep-red border-bottom py-3">
+                        <h5 class="card-title fw-bold mb-0 text-white">👉EMERGENCY HELPLINE🚨</h5>
+                    </div>
+                    <div class="card-body p-3">
+                        <ul class="list-unstyled custom-list mb-0">
+                            <li><span class="text-muted w-50 d-inline-block">Ambulance:</span> <a href="tel:100" class="tel-link float-end">03192232102/03192233473</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">Blood Bank:</span> <a href="tel:101" class="tel-link float-end">03192230628</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">police:</span> <a href="tel:1070" class="tel-link float-end">100</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">Women:</span> <a href="tel:03192XXXXXX" class="tel-link float-end">1091</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">National Cyber:</span> <a href="tel:1070" class="tel-link float-end">1930</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">Fire:</span> <a href="tel:03192XXXXXX" class="tel-link float-end">101</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">Disaster:</span> <a href="tel:03192XXXXXX" class="tel-link float-end">1070 // 03192238881</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="card sleek-card h-100 border-0">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
-                            <span class="fs-4 me-2">🚑</span>
-                            <h4 class="card-title fw-bold mb-0 text-danger">Healthcare & Ambulance</h4>
-                        </div>
-                        <ul class="list-unstyled custom-list">
-                            <li><strong>Ambulance Service:</strong> <a href="tel:102" class="tel-link">102</a> / <a href="tel:108" class="tel-link">108</a></li>
-                            <li><strong>Main Hospital Enquiry:</strong> <a href="tel:03192XXXXXX" class="tel-link">03192-XXXXXX</a></li>
-                            <li><strong>Blood Bank:</strong> <a href="tel:03192XXXXXX" class="tel-link">03192-XXXXXX</a></li>
-                            <li><strong>Women Helpline:</strong> <a href="tel:1091" class="tel-link">1091</a></li>
+                <div class="card structured-card h-100 border-red">
+                    <div class="card-header bg-deep-red border-bottom py-3">
+                        <h5 class="card-title fw-bold mb-0 text-white">👉OTHER HEALTHCARE AMBULANCE HELPLINE🚨</h5>
+                    </div>
+                    <div class="card-body p-3">
+                        <ul class="list-unstyled custom-list mb-0">
+                            <li><span class="text-muted w-50 d-inline-block">Pillar Hospital:</span> <span class="float-end"><a href="tel:102" class="tel-link">03192233193</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">Ayush Hospital:</span> <a href="tel:03192XXXXXX" class="tel-link float-end">03192233331</a></li>
+                            <!--<li><span class="text-muted w-50 d-inline-block">Blood Bank:</span> <a href="tel:03192XXXXXX" class="tel-link float-end">03192-XXXXXX</a></li>
+                            <li><span class="text-muted w-50 d-inline-block">Women Helpline:</span> <a href="tel:1091" class="tel-link float-end">1091</a></li>-->
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="section-title mb-3">
+            <h5 class="fw-bold text-uppercase text-muted tracking-wide mb-0">Schedules & Weather</h5>
+            <hr class="mt-1 mb-3">
+        </div>
+
         <div class="row g-4 mb-5 align-items-stretch">
             <div class="col-md-6">
-                <div class="card sleek-card h-100 border-0 d-flex align-items-center justify-content-center p-4">
-                    <div class="calendar-container w-100">
-                        <div class="month-header">
-                            <button class="nav-btn shadow-sm" id="prev-month">❮</button>
-                            <div class="month-title fw-bold" id="month-year"></div>
-                            <button class="nav-btn shadow-sm" id="next-month">❯</button>
+                <div class="card structured-card h-100 border-green">
+                    <div class="card-header bg-forest-green border-bottom py-3">
+                        <h5 class="card-title fw-bold mb-0 text-white">📅 Calendar</h5>
+                    </div>
+                    <div class="card-body p-4 d-flex align-items-center justify-content-center bg-light">
+                        <div class="calendar-container w-100 border bg-white p-3 rounded shadow-sm">
+                            <div class="month-header">
+                                <button class="nav-btn border" id="prev-month">❮</button>
+                                <div class="month-title fw-bold" id="month-year"></div>
+                                <button class="nav-btn border" id="next-month">❯</button>
+                            </div>
+                            <div class="weekdays text-uppercase tracking-wide border-bottom pb-2">
+                                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+                                <div>Thu</div><div>Fri</div><div>Sat</div>
+                            </div>
+                            <div class="days pt-2" id="days"></div>
                         </div>
-                        <div class="weekdays text-uppercase tracking-wide">
-                            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
-                            <div>Thu</div><div>Fri</div><div>Sat</div>
-                        </div>
-                        <div class="days" id="days"></div>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="card sleek-card h-100 border-0">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
-                            <h4 class="card-title fw-bold mb-0 text-info">🌊 Tide Details (Sea Levels)</h4>
-                        </div>
-                        <a href="tide-details.html" class="d-inline-block overflow-hidden rounded-4 image-link-hover flex-grow-1">
+                <div class="card structured-card h-100 border-green">
+                    <div class="card-header bg-forest-green border-bottom py-3">
+                        <h5 class="card-title fw-bold mb-0 text-white">🌊 Tide Details (Sea Levels)</h5>
+                    </div>
+                    <div class="card-body p-3 d-flex flex-column bg-light">
+                        <a href="tide-details.html" class="d-inline-block overflow-hidden border rounded image-link-hover flex-grow-1">
                             <img src="images/tide.jpg" alt="Local Tide Chart" class="img-fluid w-100 h-100" style="object-fit: cover; min-height: 250px;" onerror="this.src='https://via.placeholder.com/600x300?text=Interactive+Tide+Map'">
                         </a>
                     </div>
@@ -178,16 +195,16 @@
 
         <div class="row mb-5">
             <div class="col-12">
-                <div class="marquee-container mask-horizontal sleek-card border-0 py-4">
+                <div class="marquee-container mask-horizontal structured-card p-3 bg-white">
                     <div class="marquee-content d-flex align-items-center">
-                        <img src="images/slide1.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+1'">
-                        <img src="images/slide2.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+2'">
-                        <img src="images/slide3.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+3'">
-                        <img src="images/slide4.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+4'">
-                        <img src="images/slide1.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+1'">
-                        <img src="images/slide2.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+2'">
-                        <img src="images/slide3.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+3'">
-                        <img src="images/slide4.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+4'">
+                        <img src="images/slide1.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+1'">
+                        <img src="images/slide2.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+2'">
+                        <img src="images/slide3.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+3'">
+                        <img src="images/slide4.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+4'">
+                        <img src="images/slide1.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+1'">
+                        <img src="images/slide2.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+2'">
+                        <img src="images/slide3.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+3'">
+                        <img src="images/slide4.jpg" alt="Gallery Image" class="border" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+4'">
                     </div>
                 </div>
             </div>
@@ -195,9 +212,9 @@
 
     </div> <footer class="text-center py-4 mt-5 border-top bg-white">
         <p class="mb-0 text-muted fw-medium">
-            © 2026 DIVEINFO Digital Portal &nbsp;|&nbsp; 
-            <a href="#" class="text-muted text-decoration-none nav-hover">Privacy</a> &nbsp;|&nbsp; 
-            <a href="#" class="text-muted text-decoration-none nav-hover">Terms</a>
+            © 2026 DIVEINFO Portal &nbsp;|&nbsp; 
+            <a href="#" class="text-muted text-decoration-none">Privacy</a> &nbsp;|&nbsp; 
+            <a href="#" class="text-muted text-decoration-none">Terms</a>
         </p>
     </footer>
 
