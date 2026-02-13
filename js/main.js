@@ -1,20 +1,39 @@
-// --- BOOTSTRAP NATIVE DARK MODE TOGGLE ---
-function toggleMode() {
-    const htmlElement = document.documentElement;
-    const themeIcon = document.getElementById('theme-icon');
+// =========================================
+// LATEST UPDATES AUTO-SCROLLER
+// =========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollContainer = document.getElementById('update-scroll-container');
+    const scrollList = document.getElementById('update-scroll-list');
     
-    const currentTheme = htmlElement.getAttribute('data-bs-theme');
+    // Duplicate the list items to make the scrolling seamless
+    scrollList.innerHTML += scrollList.innerHTML;
     
-    if (currentTheme === 'light') {
-        htmlElement.setAttribute('data-bs-theme', 'dark');
-        themeIcon.textContent = '☀️';
-    } else {
-        htmlElement.setAttribute('data-bs-theme', 'light');
-        themeIcon.textContent = '🌙';
-    }
-}
+    let isHovered = false;
+    let scrollSpeed = 0.5; // Adjust this number to make it faster or slower
 
-// --- CALENDAR LOGIC ---
+    // Pause auto-scroll when hovered
+    scrollContainer.addEventListener('mouseenter', () => isHovered = true);
+    scrollContainer.addEventListener('mouseleave', () => isHovered = false);
+
+    function autoScroll() {
+        if (!isHovered) {
+            scrollContainer.scrollTop += scrollSpeed;
+            
+            // If scrolled halfway down (the end of the first set of duplicated items), reset to top
+            if (scrollContainer.scrollTop >= scrollContainer.scrollHeight / 2) {
+                scrollContainer.scrollTop = 0;
+            }
+        }
+        requestAnimationFrame(autoScroll);
+    }
+    
+    // Start the scroll animation
+    autoScroll();
+});
+
+// =========================================
+// INTERACTIVE CALENDAR LOGIC
+// =========================================
 let currentYear, currentMonth;
 
 function generateCalendar(year, month) {
@@ -47,14 +66,12 @@ function generateCalendar(year, month) {
     document.getElementById("days").innerHTML = daysHTML;
 }
 
-// Initialize calendar when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     let now = new Date();
     currentYear = now.getFullYear();
     currentMonth = now.getMonth();
     generateCalendar(currentYear, currentMonth);
 
-    // Event listener for Previous Month button
     document.getElementById("prev-month").addEventListener("click", function() {
         currentMonth--;
         if (currentMonth < 0) {
@@ -64,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         generateCalendar(currentYear, currentMonth);
     });
 
-    // Event listener for Next Month button
     document.getElementById("next-month").addEventListener("click", function() {
         currentMonth++;
         if (currentMonth > 11) {
