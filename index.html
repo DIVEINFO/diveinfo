@@ -1,101 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVEINFO</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIVEINFO Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="glass">
-    <div class="logo-area">
-        <img src="images/logo.jpg" alt="Logo" class="logo">
-        <h2>DIVEINFO</h2>
-    </div>
-
-    <div class="header-right">
-        <button onclick="toggleMode()" class="mode-btn">🌙</button>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    </div>
-
-    <nav id="navMenu">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navy fixed-top sleek-shadow">
+        <div class="container-fluid px-4 py-1">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                <img src="images/logo.jpg" alt="Logo" width="45" height="45" class="rounded-circle shadow-sm" onerror="this.src='https://via.placeholder.com/45'">
+                <span class="fw-bold mb-0 h4 tracking-wide">DIVEINFO</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3 ms-4">
+                    <li class="nav-item"><a class="nav-link nav-hover" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link nav-hover" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link nav-hover" href="#">Contact</a></li>
+                </ul>
+                <button onclick="toggleMode()" class="btn btn-mode rounded-circle d-flex align-items-center justify-content-center" id="theme-icon">🌙</button>
+            </div>
+        </div>
     </nav>
-</header>
 
-<!-- NEWS TICKER -->
-<div class="news-ticker">
-    <div class="ticker-content">
-        🔔 Recruitment 2026 Open | 📢 New Circular Released | 🎓 Scholarship Portal Active | 🏢 Govt Vacancy Updates
-    </div>
-</div>
+    <div style="height: 100px;"></div>
 
-<!-- MAIN SECTION -->
-<section class="section">
-
-    <!-- DIGITAL HUB -->
-    <div class="card glass">
-        <h3>Digital Hub</h3>
-        <ul class="link-list">
-            <li><a href="bus-tickets.html">🚌 Bus Tickets</a></li>
-            <li><a href="ferry-tickets.html">⛴ Ferry Tickets</a></li>
-            <li><a href="https://edistrict.andamannicobar.gov.in" target="_blank">e-District Services</a></li>
-            <li><a href="https://waterbill.gov.in" target="_blank">Water Bill Pay</a></li>
-            <li><a href="https://urjapay.andamannicobar.gov.in" target="_blank">Electricity Bill Pay</a></li>
-            <li><a href="https://apwd.gov.in" target="_blank">APWD</a></li>
-            <li><a href="https://apwd.gov.in" target="_blank">MISC</a></li>
-        </ul>
-    </div>
-
-    <!-- CURRENT UPDATES -->
-    <div class="card glass">
-        <h3>Current Updates</h3>
-        <div class="updates-container">
-            <ul class="updates-list">
-                <li>New Recruitment Notification Released</li>
-                <li><a href="#">Scholarship Portal Open</a></li>
-                <li>Website Maintenance on Sunday</li>
-                <li><a href="https://example.com" target="_blank">Govt Circular PDF</a></li>
-                <li>Exam Results Published</li>
-            </ul>
+    <div class="container mb-5">
+        <div class="news-ticker sleek-card">
+            <div class="ticker-content py-2">
+                <span class="badge bg-danger rounded-pill me-2">NEW</span> Recruitment 2026 Open &nbsp;|&nbsp; 
+                <span class="badge bg-primary rounded-pill me-2">INFO</span> New Circular Released &nbsp;|&nbsp; 
+                🎓 Scholarship Portal Active &nbsp;|&nbsp; 🏢 Govt Vacancy Updates
+            </div>
         </div>
     </div>
 
-    <!-- VACANCY -->
-    <div class="card glass">
-        <h3>Vacancy</h3>
-        <ul class="link-list">
-            <li><a href="vacancy/xyz-region.html">A&N Island Region</a></li>
-            <li><a href="vacancy/all-india.html">All India</a></li>
-            <li><a href="https://employment.gov.in" target="_blank">National Employment Portal</a></li>
-            <li><a href="vacancy/more.html">More...</a></li>
-        </ul>
-    </div>
+    <div class="container">
+        
+        <div class="row g-4 mb-5">
+            <div class="col-lg-4 col-md-6">
+                <div class="card sleek-card h-100 border-0">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                            <h4 class="card-title fw-bold mb-0 text-navy">Digital Hub</h4>
+                        </div>
+                        <ul class="list-unstyled custom-list">
+                            <li><a href="bus-tickets.html">🚌 Bus Tickets</a></li>
+                            <li><a href="ferry-tickets.html">⛴ Ferry Tickets</a></li>
+                            <li><a href="https://edistrict.andamannicobar.gov.in" target="_blank">e-District Services</a></li>
+                            <li><a href="https://waterbill.gov.in" target="_blank">Water Bill Pay</a></li>
+                            <li><a href="https://urjapay.andamannicobar.gov.in" target="_blank">Electricity Bill Pay</a></li>
+                            <li><a href="https://apwd.gov.in" target="_blank">APWD</a></li>
+                            <li><a href="https://apwd.gov.in" target="_blank">MISC</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-</section>
+            <div class="col-lg-4 col-md-6">
+                <div class="card sleek-card h-100 border-0">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                            <h4 class="card-title fw-bold mb-0 text-navy">Vacancy</h4>
+                        </div>
+                        <ul class="list-unstyled custom-list">
+                            <li><a href="vacancy/xyz-region.html">A&N Island Region</a></li>
+                            <li><a href="vacancy/all-india.html">All India</a></li>
+                            <li><a href="https://employment.gov.in" target="_blank">National Employment Portal</a></li>
+                            <li><a href="vacancy/more.html" class="fw-bold text-primary">View More Outputs ➔</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-<!-- CAROUSEL -->
-<section class="carousel glass">
-    <div class="slides" id="slideContainer">
-        <img src="images/slide1.jpg">
-        <img src="images/slide2.jpg">
-        <img src="images/slide3.jpg">
-    </div>
-    <button class="prev" onclick="moveSlide(-1)">❮</button>
-    <button class="next" onclick="moveSlide(1)">❯</button>
-</section>
+            <div class="col-lg-4 col-md-12">
+                <div class="card sleek-card h-100 border-0">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                            <h4 class="card-title fw-bold mb-0 text-navy">Latest Updates</h4>
+                        </div>
+                        <div class="scroll-container mask-vertical">
+                            <ul class="list-unstyled custom-list scroll-up-list">
+                                <li>New Recruitment Notification Released</li>
+                                <li><a href="#">Scholarship Portal Open</a></li>
+                                <li>Website Maintenance on Sunday</li>
+                                <li><a href="https://example.com" target="_blank">Govt Circular PDF</a></li>
+                                <li>Exam Results Published</li>
+                                <li>Upcoming Public Holiday Info</li>
+                                <li>Port Management Guidelines 2026</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- FOOTER -->
-<footer class="glass">
-    © 2026 Digital Portal | Privacy Policy | Terms | Disclaimer
-</footer>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card sleek-card h-100 border-0">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                            <span class="fs-4 me-2">🚨</span>
+                            <h4 class="card-title fw-bold mb-0 text-danger">INP Contacts XYZ Area</h4>
+                        </div>
+                        <ul class="list-unstyled custom-list">
+                            <li><strong>Police Control Room:</strong> <a href="tel:100" class="tel-link">100</a></li>
+                            <li><strong>Fire Service:</strong> <a href="tel:101" class="tel-link">101</a></li>
+                            <li><strong>Disaster Management:</strong> <a href="tel:1070" class="tel-link">1070</a></li>
+                            <li><strong>XYZ Area Station:</strong> <a href="tel:03192XXXXXX" class="tel-link">03192-XXXXXX</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-<script src="js/main.js"></script>
+            <div class="col-md-6">
+                <div class="card sleek-card h-100 border-0">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                            <span class="fs-4 me-2">🚑</span>
+                            <h4 class="card-title fw-bold mb-0 text-danger">Healthcare & Ambulance</h4>
+                        </div>
+                        <ul class="list-unstyled custom-list">
+                            <li><strong>Ambulance Service:</strong> <a href="tel:102" class="tel-link">102</a> / <a href="tel:108" class="tel-link">108</a></li>
+                            <li><strong>Main Hospital Enquiry:</strong> <a href="tel:03192XXXXXX" class="tel-link">03192-XXXXXX</a></li>
+                            <li><strong>Blood Bank:</strong> <a href="tel:03192XXXXXX" class="tel-link">03192-XXXXXX</a></li>
+                            <li><strong>Women Helpline:</strong> <a href="tel:1091" class="tel-link">1091</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5 align-items-stretch">
+            <div class="col-md-6">
+                <div class="card sleek-card h-100 border-0 d-flex align-items-center justify-content-center p-4">
+                    <div class="calendar-container w-100">
+                        <div class="month-header">
+                            <button class="nav-btn shadow-sm" id="prev-month">❮</button>
+                            <div class="month-title fw-bold" id="month-year"></div>
+                            <button class="nav-btn shadow-sm" id="next-month">❯</button>
+                        </div>
+                        <div class="weekdays text-uppercase tracking-wide">
+                            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+                            <div>Thu</div><div>Fri</div><div>Sat</div>
+                        </div>
+                        <div class="days" id="days"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card sleek-card h-100 border-0">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                            <h4 class="card-title fw-bold mb-0 text-info">🌊 Tide Details (Sea Levels)</h4>
+                        </div>
+                        <a href="tide-details.html" class="d-inline-block overflow-hidden rounded-4 image-link-hover flex-grow-1">
+                            <img src="images/tide.jpg" alt="Local Tide Chart" class="img-fluid w-100 h-100" style="object-fit: cover; min-height: 250px;" onerror="this.src='https://via.placeholder.com/600x300?text=Interactive+Tide+Map'">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="marquee-container mask-horizontal sleek-card border-0 py-4">
+                    <div class="marquee-content d-flex align-items-center">
+                        <img src="images/slide1.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+1'">
+                        <img src="images/slide2.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+2'">
+                        <img src="images/slide3.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+3'">
+                        <img src="images/slide4.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+4'">
+                        <img src="images/slide1.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+1'">
+                        <img src="images/slide2.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+2'">
+                        <img src="images/slide3.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+3'">
+                        <img src="images/slide4.jpg" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/350x220?text=Highlight+4'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <footer class="text-center py-4 mt-5 border-top bg-white">
+        <p class="mb-0 text-muted fw-medium">
+            © 2026 DIVEINFO Digital Portal &nbsp;|&nbsp; 
+            <a href="#" class="text-muted text-decoration-none nav-hover">Privacy</a> &nbsp;|&nbsp; 
+            <a href="#" class="text-muted text-decoration-none nav-hover">Terms</a>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
