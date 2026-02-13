@@ -1,15 +1,10 @@
 /* --- GLOBAL STYLES --- */
 body {
-    background-color: #ffffff; 
+    background-color: #f0f4f8; 
     color: #2c3e50;
-    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    font-family: 'Poppins', sans-serif;
     letter-spacing: 0.3px;
     -webkit-font-smoothing: antialiased;
-}
-
-html[data-bs-theme="dark"] body {
-    background-color: #0d1117;
-    color: #c9d1d9;
 }
 
 a {
@@ -22,75 +17,47 @@ a:hover {
     color: #003d82;
 }
 
-.text-navy { color: #051024 !important; }
 .tracking-wide { letter-spacing: 1.5px; }
+.text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
 
-/* --- HEADER COLORS (Dark Navy Blue) --- */
-.bg-navy {
-    background-color: #051024 !important; 
-}
-.sleek-shadow {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-.nav-hover {
-    position: relative;
-}
-.nav-hover::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 5px;
-    right: 0;
-    background: #fff;
-    transition: width 0.3s ease;
-}
-.nav-hover:hover::after {
-    width: 100%;
-    left: 0;
-    background: #0d6efd;
-}
-.btn-mode {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: all 0.3s ease;
-}
-.btn-mode:hover {
-    background: rgba(255,255,255,0.2);
-    transform: rotate(15deg);
+/* --- HEADER BACKGROUND (Stretchy Image) --- */
+.header-bg {
+    height: 150px; /* Increased Height */
+    /* Adds a dark overlay so white text stays readable over the image */
+    background-image: linear-gradient(rgba(5, 16, 36, 0.7), rgba(5, 16, 36, 0.7)), url('../images/header-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* --- SLEEK CARDS (The "Apple" Look) --- */
-.sleek-card {
+/* --- ROW COLOR THEMES --- */
+/* Row 1 */
+.bg-ocean-blue { background-color: #004777 !important; }
+.border-ocean { border-color: #004777 !important; }
+.text-ocean { color: #004777 !important; }
+
+/* Row 2 */
+.bg-deep-red { background-color: #9b1b30 !important; }
+.border-red { border-color: #9b1b30 !important; }
+
+/* Row 3 */
+.bg-forest-green { background-color: #2a5a3b !important; }
+.border-green { border-color: #2a5a3b !important; }
+
+/* --- STRUCTURED CARDS --- */
+.structured-card {
     background: #ffffff;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); /* Ultra soft shadow */
-    border: 1px solid rgba(0, 0, 0, 0.03) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sleek-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-}
-
-/* Dark mode adjustment for cards */
-html[data-bs-theme="dark"] .sleek-card {
-    background: #161b22;
-    border: 1px solid #30363d !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border-radius: 8px !important; 
+    border: 1px solid #d1d5db !important; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+    overflow: hidden;
 }
 
 /* --- NEWS TICKER --- */
 .news-ticker {
     overflow: hidden;
     white-space: nowrap;
-    padding: 5px 20px;
-    border-radius: 50px !important; /* Pill shape */
+    border-radius: 6px !important;
 }
 
 .ticker-content {
@@ -104,130 +71,120 @@ html[data-bs-theme="dark"] .sleek-card {
     100% { transform: translateX(-100%); }
 }
 
-/* --- CUSTOM LIST STYLING --- */
+/* --- STRUCTURED LIST ITEMS --- */
 .custom-list li {
-    margin-bottom: 14px;
-    padding-left: 24px;
+    padding: 10px 0 10px 24px;
+    margin-bottom: 0;
     position: relative;
     font-weight: 500;
+    border-bottom: 1px solid #e9ecef; 
+}
+
+.custom-list li:last-child {
+    border-bottom: none;
 }
 
 .custom-list li::before {
-    content: '➔';
+    content: '▪';
     position: absolute;
-    left: 0;
-    top: 2px;
-    font-size: 12px;
-    color: #0d6efd;
-    transition: transform 0.2s ease;
-}
-
-.custom-list li:hover::before {
-    transform: translateX(4px); /* Little arrow animation */
+    left: 6px;
+    top: 10px;
+    font-size: 16px;
+    color: #6c757d;
 }
 
 .tel-link {
-    color: #2c3e50;
+    color: #051024;
     font-weight: 600;
-    padding: 2px 6px;
-    background: #f8f9fa;
-    border-radius: 6px;
+    padding: 2px 8px;
+    background: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    display: inline-block;
 }
-html[data-bs-theme="dark"] .tel-link { background: #21262d; color: #c9d1d9; }
 
-/* --- LATEST UPDATES SCROLLING --- */
+/* --- LATEST UPDATES SCROLLING (JS Controlled) --- */
 .scroll-container {
-    height: 200px; 
-    overflow: hidden;
+    height: 390px; 
+    overflow-y: auto; /* Allows mouse wheel scrolling */
     position: relative;
+    scrollbar-width: thin; /* Firefox thin scrollbar */
+    scrollbar-color: #adb5bd #f8f9fa;
 }
 
-/* Fade out edges of the scroll container */
+/* Chrome/Safari custom scrollbar */
+.scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.scroll-container::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #adb5bd;
+    border-radius: 10px;
+}
+
 .mask-vertical {
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-}
-
-.scroll-up-list {
-    position: absolute;
-    width: 100%;
-    animation: scrollUp 15s linear infinite; 
-}
-
-.scroll-container:hover .scroll-up-list {
-    animation-play-state: paused;
-}
-
-@keyframes scrollUp {
-    0% { top: 100%; }
-    100% { top: -100%; }
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
 }
 
 /* --- IMAGE LINK HOVER --- */
 .image-link-hover img {
-    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.4s ease;
 }
 .image-link-hover:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* =========================================
-   MINIMALIST SLEEK CALENDAR
+   CALENDAR (Structured)
    ========================================= */
 .calendar-container {
     max-width: 360px;
-    background: transparent;
 }
 
 .month-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 0 10px;
+    margin-bottom: 15px;
 }
 
 .month-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #051024;
 }
 
-html[data-bs-theme="dark"] .month-title { color: #fff; }
-
 .nav-btn {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    background: #f8f9fa;
     color: #051024;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%; /* Circle buttons */
+    width: 30px;
+    height: 30px;
+    border-radius: 4px; 
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease;
 }
 
 .nav-btn:hover {
-    background: #f8f9fa;
-    transform: scale(1.1);
+    background: #e9ecef;
 }
-
-html[data-bs-theme="dark"] .nav-btn { background: #21262d; border-color: #30363d; color: #fff; }
 
 .weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    font-size: 12px;
-    color: #8c98a4;
-    margin-bottom: 10px;
+    font-size: 11px;
+    color: #6c757d;
     text-align: center;
 }
 
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
+    gap: 4px;
 }
 
 .day {
@@ -235,28 +192,24 @@ html[data-bs-theme="dark"] .nav-btn { background: #21262d; border-color: #30363d
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* Perfect circles for days */
+    border-radius: 4px; 
     font-size: 14px;
     font-weight: 500;
-    background: transparent;
     transition: 0.2s ease;
     cursor: pointer;
+    border: 1px solid transparent;
 }
 
 .day:hover:not(.today):not(:empty) {
-    background: #f0f4f8;
-    color: #0d6efd;
+    background: #e9ecef;
+    border-color: #ced4da;
+    color: #2a5a3b; /* Matches Forest Green */
 }
-
-html[data-bs-theme="dark"] .day:hover:not(.today):not(:empty) { background: #30363d; }
 
 .today {
-    background: #051024 !important; /* Match Header */
+    background: #2a5a3b !important; /* Matches Forest Green */
     color: #ffffff !important;
-    box-shadow: 0 4px 10px rgba(5, 16, 36, 0.3);
 }
-
-html[data-bs-theme="dark"] .today { background: #0d6efd !important; }
 
 /* =========================================
    AUTO CAROUSEL (RIGHT TO LEFT)
@@ -267,7 +220,6 @@ html[data-bs-theme="dark"] .today { background: #0d6efd !important; }
     width: 100%;
 }
 
-/* Fade out edges for the marquee */
 .mask-horizontal {
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
@@ -283,17 +235,11 @@ html[data-bs-theme="dark"] .today { background: #0d6efd !important; }
 }
 
 .marquee-content img {
-    height: 220px;
+    height: 200px;
     width: auto;
-    margin: 0 15px;
-    border-radius: 16px;
+    margin: 0 10px;
+    border-radius: 6px;
     object-fit: cover;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-
-.marquee-content img:hover {
-    transform: scale(1.02);
 }
 
 @keyframes scrollMarquee {
