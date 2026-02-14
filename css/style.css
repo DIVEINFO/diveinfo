@@ -24,7 +24,7 @@ a:hover {
 .header-bg {
     height: 150px; /* Increased Height */
     /* Adds a dark overlay so white text stays readable over the image */
-    background-image: linear-gradient(rgba(5, 16, 36, 0.7), rgba(5, 16, 36, 0.7)), url('../images/HEADER.jpg'); 
+    background-image:url('../IMAGES/HEADER.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
