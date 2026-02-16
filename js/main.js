@@ -1,39 +1,4 @@
-// =========================================
-// LATEST UPDATES AUTO-SCROLLER
-// =========================================
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollContainer = document.getElementById('update-scroll-container');
-    const scrollList = document.getElementById('update-scroll-list');
-    
-    // Duplicate the list items to make the scrolling seamless
-    scrollList.innerHTML += scrollList.innerHTML;
-    
-    let isHovered = false;
-    let scrollSpeed = 0.5; // Adjust this number to make it faster or slower
-
-    // Pause auto-scroll when hovered
-    scrollContainer.addEventListener('mouseenter', () => isHovered = true);
-    scrollContainer.addEventListener('mouseleave', () => isHovered = false);
-
-    function autoScroll() {
-        if (!isHovered) {
-            scrollContainer.scrollTop += scrollSpeed;
-            
-            // If scrolled halfway down (the end of the first set of duplicated items), reset to top
-            if (scrollContainer.scrollTop >= scrollContainer.scrollHeight / 2) {
-                scrollContainer.scrollTop = 0;
-            }
-        }
-        requestAnimationFrame(autoScroll);
-    }
-    
-    // Start the scroll animation
-    autoScroll();
-});
-
-// =========================================
-// INTERACTIVE CALENDAR LOGIC
-// =========================================
+// --- CALENDAR LOGIC ---
 let currentYear, currentMonth;
 
 function generateCalendar(year, month) {
@@ -66,12 +31,14 @@ function generateCalendar(year, month) {
     document.getElementById("days").innerHTML = daysHTML;
 }
 
+// Initialize calendar when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     let now = new Date();
     currentYear = now.getFullYear();
     currentMonth = now.getMonth();
     generateCalendar(currentYear, currentMonth);
 
+    // Event listener for Previous Month button
     document.getElementById("prev-month").addEventListener("click", function() {
         currentMonth--;
         if (currentMonth < 0) {
@@ -81,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         generateCalendar(currentYear, currentMonth);
     });
 
+    // Event listener for Next Month button
     document.getElementById("next-month").addEventListener("click", function() {
         currentMonth++;
         if (currentMonth > 11) {
@@ -90,3 +58,17 @@ document.addEventListener('DOMContentLoaded', function() {
         generateCalendar(currentYear, currentMonth);
     });
 });
+
+ var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto", 
+        spaceBetween: 20,       // 20px Gap
+        loop: true,             // Infinite Loop
+        freeMode: true,         // Smooth Dragging
+        speed: 5000,            // 4 Seconds Speed (Adjust higher for slower)
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false, // Keeps moving after drag
+            pauseOnMouseEnter: true      // Pauses on hover
+        },
+        freeModeMomentum: false, // Prevents "flinging", keeps it steady
+    });
