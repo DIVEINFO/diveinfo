@@ -1,1 +1,400 @@
 
+Here is the **updated complete code** with the 5 new sectors (UPSC, Teaching, Engineering, Police, State PSC) added to both the **job list** and the **category filter section**.
+
+### 📄 Updated `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All India Govt Job Portal | Rozgar India</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy: #000080;
+            --bg-light: #f4f6f9;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            padding-top: 80px;
+        }
+
+        /* --- STICKY HEADER --- */
+        .navbar {
+            background: var(--navy);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tricolor-line {
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(to right, var(--saffron) 33%, var(--white) 33%, var(--white) 66%, var(--green) 66%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* --- SEARCH BAR --- */
+        .search-container {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+        }
+        .search-input {
+            width: 100%;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 2px;
+            background: var(--saffron);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* --- CATEGORY TILES --- */
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--saffron);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            background: #fff8e1;
+        }
+
+        .cat-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: var(--navy);
+        }
+
+        .cat-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* --- JOB LISTINGS --- */
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--navy);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .job-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Sector Color Codes */
+        .type-defense { border-left-color: #2e7d32; }     /* Green */
+        .type-medical { border-left-color: #d32f2f; }     /* Red */
+        .type-railway { border-left-color: #1565c0; }     /* Blue */
+        .type-bank { border-left-color: #f9a825; }        /* Yellow */
+        .type-upsc { border-left-color: #6a1b9a; }        /* Purple */
+        .type-teaching { border-left-color: #ef6c00; }    /* Orange */
+        .type-engineering { border-left-color: #455a64; } /* Slate */
+        .type-police { border-left-color: #795548; }      /* Brown */
+        .type-state_psc { border-left-color: #00838f; }   /* Cyan */
+
+        .job-info h5 {
+            margin: 0;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .job-dept {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .job-meta {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .btn-apply {
+            background: var(--navy);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .btn-apply:hover { background: #000060; color: white; }
+
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 40px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        /* Tag styling */
+        .sector-badge { font-size: 0.65rem; vertical-align: middle; margin-left: 8px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="location.reload()">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem" width="35" height="35" class="filter-white">
+                ROZGAR INDIA
+            </a>
+            
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold" href="#" onclick="filterJobs('all')"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#">Admit Cards</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#">Results</a></li>
+                </ul>
+
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search (e.g. IAS, Police, Engineer)...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="tricolor-line"></div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="alert alert-warning border-0 shadow-sm d-flex align-items-center p-2" role="alert">
+            <span class="badge bg-danger me-2">LIVE</span>
+            <marquee behavior="scroll" direction="left" class="fw-bold text-dark" style="font-size: 0.9rem;">
+                UPSC Civil Services 2026 Notification Out • KVS Primary Teacher Recruitment Starts • SSC CGL Tier-1 Result Declared • UP Police Sub-Inspector Applications Open
+            </marquee>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <h5 class="mb-3 fw-bold text-secondary border-bottom pb-2">Browse by Sector</h5>
+        <div class="row g-2">
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('upsc')">
+                    <i class="fas fa-university cat-icon" style="color: #6a1b9a;"></i>
+                    <div class="cat-title">UPSC</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('defense')">
+                    <i class="fas fa-shield-alt cat-icon" style="color: #2e7d32;"></i>
+                    <div class="cat-title">Defense</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('railway')">
+                    <i class="fas fa-train cat-icon" style="color: #1565c0;"></i>
+                    <div class="cat-title">Railways</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('police')">
+                    <i class="fas fa-user-shield cat-icon" style="color: #795548;"></i>
+                    <div class="cat-title">Police</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('bank')">
+                    <i class="fas fa-rupee-sign cat-icon" style="color: #f9a825;"></i>
+                    <div class="cat-title">Banking</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('engineering')">
+                    <i class="fas fa-cogs cat-icon" style="color: #455a64;"></i>
+                    <div class="cat-title">Engg/PSU</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('teaching')">
+                    <i class="fas fa-chalkboard-teacher cat-icon" style="color: #ef6c00;"></i>
+                    <div class="cat-title">Teaching</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('medical')">
+                    <i class="fas fa-user-md cat-icon" style="color: #d32f2f;"></i>
+                    <div class="cat-title">Medical</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2"> <div class="category-card" onclick="filterJobs('state_psc')">
+                    <i class="fas fa-gavel cat-icon" style="color: #00838f;"></i>
+                    <div class="cat-title">State PSC</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+            <h3 class="fw-bold m-0" id="listHeading">Latest Notifications</h3>
+            <button class="btn btn-sm btn-secondary" onclick="filterJobs('all')">View All</button>
+        </div>
+
+        <div id="jobContainer">
+            </div>
+
+        <div id="noResults" class="text-center py-5" style="display: none;">
+            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+            <h5>No Jobs Found</h5>
+            <p class="text-muted">Try a different category or search term.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="mb-1">&copy; 2026 Rozgar India Portal. Content is for informational purposes only.</p>
+            <small>Designed for Indian Government Job Aspirants</small>
+        </div>
+    </footer>
+
+    <script>
+        // --- EXPANDED DATABASE (15 JOBS) ---
+        const jobs = [
+            // Original 10
+            { id: 1, title: "Nursing Officer (NORCET)", dept: "AIIMS New Delhi", type: "medical", date: "25 Feb 2026", loc: "All India" },
+            { id: 2, title: "Agniveer General Duty", dept: "Indian Army", type: "defense", date: "28 Feb 2026", loc: "Rally Wise" },
+            { id: 3, title: "Assistant Loco Pilot", dept: "Indian Railways (RRB)", type: "railway", date: "10 Mar 2026", loc: "Regional" },
+            { id: 4, title: "Probationary Officer (PO)", dept: "State Bank of India", type: "bank", date: "15 Mar 2026", loc: "All India" },
+            { id: 5, title: "Senior Resident Doctor", dept: "JIPMER Puducherry", type: "medical", date: "02 Mar 2026", loc: "Puducherry" },
+            { id: 6, title: "Flying Officer (AFCAT)", dept: "Indian Air Force", type: "defense", date: "12 Mar 2026", loc: "All India" },
+            { id: 7, title: "Group D Track Maintainer", dept: "RRB Chennai", type: "railway", date: "20 Mar 2026", loc: "Chennai" },
+            { id: 8, title: "SSC Combined Graduate Level", dept: "Staff Selection Comm.", type: "ssc", date: "01 Apr 2026", loc: "All India" },
+            { id: 9, title: "Specialist Officer (IT)", dept: "IBPS", type: "bank", date: "05 Mar 2026", loc: "Mumbai" },
+            { id: 10, title: "Medical Officer (Ayush)", dept: "Ministry of Ayush", type: "medical", date: "18 Feb 2026", loc: "Delhi" },
+            
+            // NEW 5 SECTORS ADDED
+            { id: 11, title: "Civil Services (IAS/IPS)", dept: "UPSC", type: "upsc", date: "24 May 2026", loc: "All India" },
+            { id: 12, title: "Primary Teacher (PRT)", dept: "KVS (Kendriya Vidyalaya)", type: "teaching", date: "15 Apr 2026", loc: "All India" },
+            { id: 13, title: "Assistant Engineer (Trainee)", dept: "NTPC Limited", type: "engineering", date: "30 Mar 2026", loc: "Projects" },
+            { id: 14, title: "Sub Inspector (SI)", dept: "UP Police", type: "police", date: "10 Apr 2026", loc: "Uttar Pradesh" },
+            { id: 15, title: "Review Officer (RO/ARO)", dept: "UPPSC", type: "state_psc", date: "20 May 2026", loc: "Lucknow" }
+        ];
+
+        const container = document.getElementById('jobContainer');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        // --- RENDER FUNCTION ---
+        function renderJobs(data) {
+            container.innerHTML = "";
+            if (data.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            } else {
+                noResults.style.display = 'none';
+            }
+
+            data.forEach(job => {
+                const card = document.createElement('div');
+                card.className = `job-card type-${job.type}`;
+                card.innerHTML = `
+                    <div class="job-info">
+                        <h5>${job.title} <span class="badge bg-secondary sector-badge">${job.type.toUpperCase()}</span></h5>
+                        <div class="job-dept"><i class="fas fa-building me-1"></i> ${job.dept}</div>
+                        <div class="job-meta">
+                            <span class="me-3"><i class="fas fa-map-marker-alt me-1"></i> ${job.loc}</span>
+                            <span><i class="fas fa-calendar-alt me-1"></i> Ends: ${job.date}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#" class="btn-apply">Apply <i class="fas fa-chevron-right ms-1"></i></a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // --- FILTER FUNCTION ---
+        function filterJobs(category) {
+            // Reset Search
+            searchInput.value = '';
+            
+            if (category === 'all') {
+                document.getElementById('listHeading').innerText = "All Latest Notifications";
+                renderJobs(jobs);
+            } else {
+                const filtered = jobs.filter(job => job.type === category);
+                // Formatting title nicely (e.g. 'state_psc' -> 'State PSC')
+                const displayTitle = category.replace('_', ' ').toUpperCase();
+                document.getElementById('listHeading').innerText = displayTitle + " Jobs";
+                renderJobs(filtered);
+            }
+        }
+
+        // --- SEARCH FUNCTION ---
+        searchInput.addEventListener('keyup', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = jobs.filter(job => 
+                job.title.toLowerCase().includes(term) || 
+                job.dept.toLowerCase().includes(term) ||
+                job.type.toLowerCase().replace('_',' ').includes(term)
+            );
+            
+            if(term.length > 0) {
+                document.getElementById('listHeading').innerText = "Search Results";
+            } else {
+                document.getElementById('listHeading').innerText = "All Latest Notifications";
+            }
+            renderJobs(filtered);
+        });
+
+        // Initial Load
+        renderJobs(jobs);
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+```
