@@ -1,6 +1,6 @@
 /* --- GLOBAL STYLES --- */
 body {
-    background-color: #f0f4f8; 
+    background-color: #54eeee; 
     color: #2c3e50;
     font-family: 'Poppins', sans-serif;
     letter-spacing: 0.3px;
@@ -24,7 +24,7 @@ a:hover {
 .header-bg {
     height: 150px; /* Increased Height */
     /* Adds a dark overlay so white text stays readable over the image */
-    background-image:url('../IMAGES/HEADER.jpg'); 
+    background-image:url('../images/HEADER.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -214,35 +214,45 @@ a:hover {
 /* =========================================
    AUTO CAROUSEL (RIGHT TO LEFT)
    ========================================= */
-.marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
+/* --- HORIZONTAL CAROUSEL STYLES --- */
+.swiper {
     width: 100%;
+    padding: 10px 0;
 }
 
-.mask-horizontal {
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+.swiper-wrapper {
+    transition-timing-function: linear; /* Smooth continuous scroll */
 }
 
-.marquee-content {
-    display: inline-flex;
-    animation: scrollMarquee 30s linear infinite; 
+.swiper-slide {
+    /* FORCE EXACT SIZE HERE */
+    width: 300px !important;   /* Fixed Width */
+    height: 200px !important;  /* Fixed Height */
+    
+    /* Layout fix */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden; /* Clips corners */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.marquee-container:hover .marquee-content {
-    animation-play-state: paused; 
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Key: Cuts off excess to fill box perfectly */
+    display: block;
+    transition: transform 0.3s ease;
+    cursor: grab;
 }
 
-.marquee-content img {
-    height: 200px;
-    width: auto;
-    margin: 0 10px;
-    border-radius: 6px;
-    object-fit: cover;
+.swiper-slide img:active {
+    cursor: grabbing;
 }
 
-@keyframes scrollMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
+/* Pop effect on hover */
+.swiper-slide img:hover {
+    transform: scale(1.1); /* Zoom in slightly */
 }
