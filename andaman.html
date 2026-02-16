@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>XYZ Region Vacancies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --gov:#2563eb;
+    --pvt:#ec4899;
+    --bg:#f8fafc;
+}
+
+body{
+    font-family:Poppins,sans-serif;
+    background:var(--bg);
+    color:#020617;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#020617,#1e293b);
+    color:#fff;
+    padding:22px 0 45px;
+    text-align:center;
+}
+
+/* SEARCH BAR */
+.search-bar{
+    background:#fff;
+    border-radius:12px;
+    padding:10px 12px;
+    margin-top:-28px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+/* FILTER BUTTONS */
+.filter-btn{
+    border:1px solid #e5e7eb;
+    background:#f1f5f9;
+    padding:6px 10px;
+    font-size:.75rem;
+    border-radius:8px;
+    cursor:pointer;
+}
+.filter-btn.active{background:#020617;color:#fff}
+
+/* JOB CARD */
+.job-card{
+    background:#fff;
+    border-radius:10px;
+    padding:12px 14px;
+    border-left:5px solid;
+    margin-bottom:10px;
+    transition:.2s;
+}
+.job-card:hover{transform:translateY(-2px)}
+
+.govt{border-color:var(--gov)}
+.private{border-color:var(--pvt)}
+
+.job-title{
+    font-size:.95rem;
+    font-weight:600;
+}
+
+.job-meta{
+    font-size:.72rem;
+    color:#475569;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.actions{
+    display:flex;
+    gap:6px;
+    margin-top:6px;
+}
+
+.btn-mini{
+    font-size:.7rem;
+    padding:5px 10px;
+    border-radius:6px;
+    border:none;
+    font-weight:600;
+}
+.btn-gov{background:var(--gov);color:#fff}
+.btn-pvt{background:var(--pvt);color:#fff}
+.btn-doc{background:#e5e7eb}
+
+/* LIST MODE */
+body.list .job-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+body.list .actions{margin-top:0}
+body.list .job-meta{margin-bottom:0}
+
+/* BADGE */
+.new{
+    background:#16a34a;
+    color:#fff;
+    font-size:.55rem;
+    padding:2px 5px;
+    border-radius:4px;
+    margin-left:6px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:.75rem;
+    color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h5 class="fw-bold mb-1">XYZ REGION VACANCIES</h5>
+    <small>Official Recruitment Portal</small>
+</header>
+
+<div class="container">
+    <div class="search-bar">
+        <i class="fa fa-search text-muted"></i>
+        <input class="form-control border-0" id="search" placeholder="Search job, dept, post...">
+        <button class="filter-btn active" onclick="filterType('all')">All</button>
+        <button class="filter-btn" onclick="filterType('govt')">Govt</button>
+        <button class="filter-btn" onclick="filterType('private')">Private</button>
+        <button class="filter-btn" onclick="toggleView()">
+            <i class="fa fa-list"></i>
+        </button>
+    </div>
+
+    <div class="mt-3" id="jobs">
+
+        <div class="job-card govt" data-date="2026-02-14">
+            <div>
+                <div class="job-title">Junior Clerk <span class="new">NEW</span></div>
+                <div class="job-meta">
+                    <span><i class="fa fa-building"></i> Secretariat</span>
+                    <span><i class="fa fa-clock"></i> Ends 20 Feb</span>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn-mini btn-doc"><i class="fa fa-file-pdf"></i></button>
+                <button class="btn-mini btn-gov">Apply</button>
+            </div>
+        </div>
+
+        <div class="job-card govt" data-date="2026-02-10">
+            <div>
+                <div class="job-title">Assistant Engineer</div>
+                <div class="job-meta">
+                    <span><i class="fa fa-hard-hat"></i> APWD</span>
+                    <span><i class="fa fa-clock"></i> Ends 28 Feb</span>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn-mini btn-doc"><i class="fa fa-file-pdf"></i></button>
+                <button class="btn-mini btn-gov">Apply</button>
+            </div>
+        </div>
+
+        <div class="job-card private" data-date="2026-02-15">
+            <div>
+                <div class="job-title">Data Entry Operator</div>
+                <div class="job-meta">
+                    <span><i class="fa fa-laptop"></i> Tech Solutions</span>
+                    <span class="fw-bold text-success">₹15,000</span>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn-mini btn-doc"><i class="fa fa-eye"></i></button>
+                <button class="btn-mini btn-pvt">Apply</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 XYZ Vacancy Portal
+</footer>
+
+<script>
+/* SEARCH */
+search.onkeyup=()=>{
+    let t=search.value.toLowerCase();
+    document.querySelectorAll('.job-card').forEach(j=>{
+        j.style.display=j.innerText.toLowerCase().includes(t)?"flex":"none";
+    });
+};
+
+/* FILTER */
+function filterType(type){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    document.querySelectorAll('.job-card').forEach(j=>{
+        j.style.display=(type==="all"||j.classList.contains(type))?"flex":"none";
+    });
+}
+
+/* VIEW */
+function toggleView(){
+    document.body.classList.toggle("list");
+}
+</script>
+
+</body>
+</html>
